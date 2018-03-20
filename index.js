@@ -22,7 +22,7 @@
 var $ = require('jquery');
 var Color = require('color.js');
 var urlRegex = require('url-regex');
-const contextMenu = require('electron-context-menu')
+// const contextMenu = require('electron-context-menu')
 var globalCloseableTabsOverride;
 /**
  * OBJECT
@@ -290,6 +290,7 @@ function Navigation(options) {
 
         webview.on('dom-ready', function () {
             if (options.contextMenu) {
+                /*
                 contextMenu({
                     window: webview[0],
                     labels: {
@@ -301,6 +302,7 @@ function Navigation(options) {
                         inspect: 'Inspect'
                     }
                 });
+                */
             }
         });
         webview.on('page-title-updated', function () {
@@ -408,7 +410,7 @@ Navigation.prototype.newTab = function (url, options) {
         title: "default", // 'default', 'your title here'
         close: true,
         readonlyUrl: false,
-        contextMenu: true
+        contextMenu: false // true
     }
     if (options === 'undefined' || options === 'null' || options !== Object(options)) {
         options = {};
